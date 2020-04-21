@@ -1,13 +1,12 @@
 {
-  "name": "react",
+  "name": "project-s",
   "version": "1.0.0",
-  "description": "React example starter project",
-  "keywords": [
-    "react",
-    "starter"
-  ],
+  "description": "Team-S came up with this unique idea to build a project by the name Project-S",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@material-ui/core": "4.9.11",
+    "@material-ui/icons": "4.9.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
