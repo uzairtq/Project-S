@@ -1,7 +1,7 @@
 {
   "name": "project-s",
   "version": "1.0.0",
-  "description": "Team-S came up with this unique idea to build a project by the name Project-S",
+  "description": "Team of hardworking people came up with this idea",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
