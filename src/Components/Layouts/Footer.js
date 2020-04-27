@@ -8,14 +8,13 @@ const useStyles = makeStyles({
   }
 });
 
-export default function CenteredTabs() {
+export default function CenteredTabs({ genres }) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   return (
     <Paper className={classes.root}>
       <Tabs
@@ -25,9 +24,10 @@ export default function CenteredTabs() {
         textColor="primary"
         centered
       >
-        <Tab label="Item One" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
+        <Tab label="All" />
+        {genres.map(group => (
+          <Tab label={group} />
+        ))}
       </Tabs>
     </Paper>
   );
