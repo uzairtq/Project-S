@@ -14,7 +14,7 @@ const styles = {
     marginTop: 10,
     marginBotton: 10,
     height: 500,
-    width: 240,
+    minWidth: 200,
     overflowY: "auto"
   },
   Pane_Paper_Right: {
@@ -24,7 +24,7 @@ const styles = {
     height: 500
   },
   root: {
-    flexGrow: 1
+    flexGrow: 4
   }
 };
 

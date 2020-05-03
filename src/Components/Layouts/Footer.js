@@ -17,7 +17,7 @@ export default function CenteredTabs({ genres, onSelect }) {
 
   const handleChange = (event, newIndex) => {
     setIndex(newIndex);
-    onSelect(index === 0 ? "" : genres[newIndex - 1]);
+    onSelect(newIndex === 0 ? "" : genres[newIndex - 1]);
   };
   return (
     <Paper className={classes.root}>
