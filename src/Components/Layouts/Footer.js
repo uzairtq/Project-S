@@ -2,27 +2,32 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Tabs, Tab } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
+  },
+  TabBar: {
+    backgroundColor: "#ffb700"
   }
-});
+}));
 
-export default function CenteredTabs({ genres }) {
+export default function CenteredTabs({ genres, onSelect }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [index, setIndex] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event, newIndex) => {
+    setIndex(newIndex);
+    onSelect(index === 0 ? "" : genres[newIndex - 1]);
   };
   return (
     <Paper className={classes.root}>
       <Tabs
-        value={value}
+        className={classes.TabBar}
+        value={index}
         onChange={handleChange}
+        variant="scrollable"
         indicatorColor="primary"
-        textColor="primary"
-        centered
+        textColor="#000000"
       >
         <Tab label="All" />
         {genres.map(group => (

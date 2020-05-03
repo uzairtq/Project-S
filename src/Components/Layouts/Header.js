@@ -16,7 +16,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: "#000000" }}>
         <Toolbar>
           <IconButton
             edge="start"
