@@ -7,6 +7,7 @@ import "./styles.css";
 export default class extends Component {
   state = {
     movies,
+    movie: {},
     category: ""
   };
 
@@ -25,14 +26,25 @@ export default class extends Component {
     this.setState({ category });
   };
 
+  handleMovieSelected = id => {
+    this.setState(({ movies }) => ({
+      movie: movies.find(mv => mv.id === id)
+    }));
+  };
+
   render() {
     const movies = this.getMoviesByGenres();
-    const { category } = this.state;
+    const { category, movie } = this.state;
     return (
       <Fragment>
         <Header />
         <Footer genres={genres} onSelect={this.handleCategorySelected} />
-        <Movies movies={movies} category={category} />
+        <Movies
+          movie={movie}
+          movies={movies}
+          category={category}
+          onSelect={this.handleMovieSelected}
+        />
       </Fragment>
     );
   }

@@ -28,17 +28,26 @@ const styles = {
   }
 };
 
-export default ({ movies, category }) => (
+export default ({
+  movies,
+  category,
+  onSelect,
+  movie: {
+    id,
+    title = "Welcome!",
+    description = "Please Select a movie from the list on the left."
+  }
+}) => (
   <Grid container direction="row" justify="flex-start" alignItems="flex-start">
     <Grid item sm>
       <Paper style={styles.Pane_Paper_Left}>
         {movies.map(([group, movies]) =>
           !category || category === group ? (
-            <Fragment>
+            <Fragment key={group}>
               <Typography variant="h5">{group}</Typography>
               <List component="ul">
-                {movies.map(({ title }) => (
-                  <ListItem button>
+                {movies.map(({ id, title }) => (
+                  <ListItem key={id} button onClick={() => onSelect(id)}>
                     <ListItemText primary={title} />
                   </ListItem>
                 ))}
@@ -50,9 +59,9 @@ export default ({ movies, category }) => (
     </Grid>
     <Grid item sm style={styles.root}>
       <Paper style={styles.Pane_Paper_Right}>
-        <Typography variant="h4">Welcome!</Typography>
+        <Typography variant="h4">{title}</Typography>
         <Typography variant="subtitle1" style={{ marginTop: 20 }}>
-          Please Select a movie from the list on the left.
+          {description}
         </Typography>
       </Paper>
     </Grid>

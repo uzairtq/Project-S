@@ -31,7 +31,7 @@ export default function CenteredTabs({ genres, onSelect }) {
       >
         <Tab label="All" />
         {genres.map(group => (
-          <Tab label={group} />
+          <Tab key={group} label={group} />
         ))}
       </Tabs>
     </Paper>
