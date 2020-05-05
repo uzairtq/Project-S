@@ -1,5 +1,5 @@
 import React from "react";
-
+import AddDialog from "../Movies/Dialogs/Add";
 import {
   AppBar,
   Toolbar,
@@ -16,7 +16,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "#000000" }}>
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             edge="start"
@@ -29,6 +29,7 @@ export default function SearchAppBar() {
           <Typography className={classes.title} variant="h6" noWrap>
             Movie Database
           </Typography>
+          <AddDialog style={classes.root} />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -69,10 +70,9 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25)
     },
-    marginLeft: 0,
+    marginLeft: theme.spacing(1),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
       width: "auto"
     }
   },
